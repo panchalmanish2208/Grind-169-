@@ -67,14 +67,10 @@ function canAttendMeeting(intervals){
 }
 
 ```
-#### **Solution 2**
-- Initialize start and end with start and end times of the first meeting
-- Iterate through meetings:
-  - If intervals[i][0] > end, update start and end with intervals[i][0] and intervals[i][1]
-  - If intervals[i][0] <= end and intervals[i][1] <= start, do not update start and end
-  - If neither condition is met, indicating overlap: return false
-- If loop completes without finding overlaps: return true
-
+#### **My Attempted Solution*
+Wrong Answer
+For ex.
+failed testcase - canAttendMeeting([[5, 10], [1, 4], [2, 3]]);
 ```js
 function canAttendMeeting(intervals){
     let start = intervals[0][0];
