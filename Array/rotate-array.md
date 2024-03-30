@@ -47,6 +47,20 @@ Could you do it in-place with O(1) extra space?
 * **Approach 1** Using Reverse (O(1))
   * Runtime: 99 ms, faster than 7.38% of JavaScript online submissions for Rotate Array.
   * Memory Usage: 59.9 MB, less than 29.19% of JavaScript online submissions for Rotate Array.
+  - Calculate effective rotation steps: 
+  - Compute k %= nums.length to handle cases where k > array length
+  - Define reverse function: Reverses elements between given indices
+  - Reverse entire array: Brings last k elements to front, first n-k elements to end
+  - Reverse first k elements: Places them at end of array
+  - Reverse remaining elements: Shifts them to beginning of array
+
+  Example Walkthrough:
+  - Input array: nums = [1, 2, 3, 4, 5, 6, 7], k = 3
+  - Effective rotation steps: k %= 7 = 3
+  - Reverse entire array: [7, 6, 5, 4, 3, 2, 1]
+  - Reverse first k elements: [5, 6, 7, 4, 3, 2, 1]
+  - Reverse remaining elements: [5, 6, 7, 1, 2, 3, 4]
+  - Resulting rotated array: [5, 6, 7, 1, 2, 3, 4]
 ```js
 let reverse = function(nums, start, end){
     while(start<end){
@@ -67,7 +81,19 @@ var rotate = function(nums, k) {
 ```
   
 * **Approach 2** Using Extra Space
-  
+
+  - Calculate effective rotation steps:
+    - Take modulo of k with array length (k %= nums.length)
+    - Reason: Ensure effective rotation even if k is larger than array length
+  - Create new array rotated
+    - Reason: To store rotated elements without modifying original array
+  - Iterate original array elements:
+    - Calculate new index after rotation: (i + k) % nums.length
+    - Reason: Determine correct position for each element after rotation
+    - Assign original element to calculated index in rotated array
+  - Populate rotated array, copy elements back to nums array
+    - Reason: Update original array with rotated elements
+
 ```js
   var rotate = function(nums, k) {
     // for(let i=0; i<k; i++){
