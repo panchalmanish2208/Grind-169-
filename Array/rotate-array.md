@@ -36,12 +36,12 @@ Could you do it in-place with O(1) extra space?
   * Memory Usage: 57 MB, less than 69.04% of JavaScript online submissions for Rotate Array.
   - Calculate effective rotation steps: 
   - Compute k %= nums.length
-  **Example Walkthrough:**
-  - Input: nums = [1, 2, 3, 4, 5, 6, 7], k = 3
-  - Effective rotation steps: k %= 7 = 3
-  - Splice last k elements: [5, 6, 7]
-  - Splice them to the beginning of the array: [5, 6, 7, 1, 2, 3, 4]
-  - Resulting rotated array: [5, 6, 7, 1, 2, 3, 4]
+  - **Example Walkthrough:**
+    - Input: nums = [1, 2, 3, 4, 5, 6, 7], k = 3
+    - Effective rotation steps: k %= 7 = 3
+    - Splice last k elements: [5, 6, 7]
+    - Splice them to the beginning of the array: [5, 6, 7, 1, 2, 3, 4]
+    - Resulting rotated array: [5, 6, 7, 1, 2, 3, 4]
 
   ```js
   var rotate = function (nums, k) {
